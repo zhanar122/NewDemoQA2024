@@ -27,6 +27,7 @@ public class DriverManager {
     public static void closeDriver(){
         try {
             if(driver != null){
+                driver.close();
                 driver.quit(); // заменено close() на quit()
                 driver = null;
             }
