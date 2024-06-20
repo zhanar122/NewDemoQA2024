@@ -8,7 +8,7 @@ public class MenuPageTest extends BaseTest{
 
         browserHelper.open("https://demoqa.com/menu");
         webElementActions.moveToElement(demoQAPages.getMenuPage().subItem2);
-        Thread.sleep(5000);
+        Thread.sleep(3000);
 
     }
 }

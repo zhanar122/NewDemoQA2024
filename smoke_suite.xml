@@ -6,8 +6,11 @@
         </listeners>
     <test verbose="2" preserve-order="true" name="C:/Users/Admin/IdeaProjects/DemoQAWinter2024">
         <classes>
-            <class name="FramePageTest"></class>
-            <class name="MenuPageTest"></class>
+            <class name="FramePageTest"/>
+            <class name="PracticeFormTest"/>
+            <class name="ButtonsTest"/>
+            <class name="SelectDemoTest"/>
+            <class name="OrangePageTest"/>
         </classes>
     </test>
 </suite>

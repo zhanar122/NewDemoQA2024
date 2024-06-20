@@ -3,17 +3,16 @@ package com.demoqa.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static com.demoqa.drivers.DriverManager.driver;
 
 public class MenuPage extends BasePage{
 
-    @FindBy(xpath = "//*[@id=\"nav\"]/li[2]/a")
+    @FindBy(xpath = "//a[text()='Main Item 2']")
     public WebElement mainMenu;
 
-    @FindBy(xpath = "//*[@id=\"nav\"]/li[2]/ul")
+    @FindBy(xpath = "//a[text()='SUB SUB LIST »']")
     public WebElement sublist;
 
-    @FindBy(xpath = "//*[@id=\"nav\"]/li[2]/ul/li[1]/a")
+    @FindBy(xpath = "//a[text()='Sub Sub Item 2']")
     public WebElement subItem2;
 
 
