@@ -21,12 +21,10 @@ public class OrangeLoginPage extends BasePage {
     @FindBy(className = "oxd-sidepanel-body")
     public WebElement sidePanelBody;
 
-    public OrangeLoginPage fillForm(OrangeLoginEntity orangeLoginEntity){
+    public void fillForm(OrangeLoginEntity orangeLoginEntity){
        webElementActions.sendKeys(userNameInput, orangeLoginEntity.getUserName())
                .sendKeys(passwordInput,orangeLoginEntity.getPassword())
                .click(loginButton);
-
-        return this;
 
     }
 

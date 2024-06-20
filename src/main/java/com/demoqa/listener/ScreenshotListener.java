@@ -21,8 +21,8 @@ public class ScreenshotListener implements ITestListener {
     }
 
     @Attachment(value = "Page screenshot", type = "image/png")
-    public byte[] saveScreenshotPNG() {
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    public void saveScreenshotPNG() {
+        ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
     @Override

@@ -3,10 +3,17 @@ package com.demoqa.pages;
 import com.demoqa.entities.PracticeFormEntity;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import static com.demoqa.drivers.DriverManager.driver;
+import static com.demoqa.drivers.DriverManager.getDriver;
 
 public class PracticeFormPage extends BasePage {
 
@@ -30,6 +37,18 @@ public class PracticeFormPage extends BasePage {
 
     @FindBy(id = "userNumber")
     private WebElement mobileNumberInput;
+
+    @FindBy(id = "dateOfBirthInput")
+    private WebElement dateOfBirthInput;
+
+    @FindBy(xpath = "//select[@class='react-datepicker__year-select']")
+    private WebElement yearSelect;
+
+    @FindBy(xpath = "//select[@class='react-datepicker__month-select']")
+    private WebElement monthSelect;
+
+    @FindBy(className = "react-datepicker__day")
+    private List<WebElement> dayOptions;
 
     @FindBy(id = "subjectsInput")
     private WebElement subjectsInput;
@@ -61,12 +80,12 @@ public class PracticeFormPage extends BasePage {
     @FindBy(id = "closeLargeModal")
     private WebElement closeLargeInput;
 
-    private String[] states = {"NCR", "Uttar Pradesh", "Haryana","Rajasthan"};
+    private String[] states = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
     private String[][] cities = {
-            {"Delhi", "Gurgaon", "Noida", },
-            {"Agra", "lucknow", "Merrut", },
-            {"karnal", "Panipat" },
-            {"Jaipur", "Jaiselmer"},
+            {"Delhi", "Gurgaon", "Noida"},
+            {"Agra", "Lucknow", "Merrut"},
+            {"Karnal", "Panipat"},
+            {"Jaipur", "Jaiselmer"}
     };
 
     public PracticeFormPage fillForm(PracticeFormEntity practiceFormEntity) throws InterruptedException {
@@ -90,6 +109,35 @@ public class PracticeFormPage extends BasePage {
         webElementActions.click(closeLargeInput);
         Thread.sleep(3000);
         return this;
+    }
+
+    private void selectRandomDate() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+
+
+        Select year = new Select(yearSelect);
+        wait.until(ExpectedConditions.elementToBeClickable(yearSelect));
+        List<WebElement> yearOptions = year.getOptions();
+        WebElement randomYear = yearOptions.get(new Random().nextInt(yearOptions.size()));
+        year.selectByVisibleText(randomYear.getText());
+
+        Select month = new Select(monthSelect);
+        wait.until(ExpectedConditions.elementToBeClickable(monthSelect));
+        List<WebElement> monthOptions = month.getOptions();
+        WebElement randomMonth = monthOptions.get(new Random().nextInt(monthOptions.size()));
+        month.selectByVisibleText(randomMonth.getText());
+
+        wait.until(ExpectedConditions.visibilityOfAllElements(dayOptions));
+        List<WebElement> days = new ArrayList<>();
+        for (WebElement day : dayOptions) {
+            if (!day.getAttribute("class").contains("react-datepicker__day--outside-month")) {
+                days.add(day);
+            }
+        }
+
+        WebElement randomDay = days.get(new Random().nextInt(days.size()));
+        wait.until(ExpectedConditions.elementToBeClickable(randomDay));
+        randomDay.click();
     }
 
     private WebElement getRandomGenderInput() {
