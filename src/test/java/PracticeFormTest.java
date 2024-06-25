@@ -1,7 +1,6 @@
 import com.demoqa.entities.PracticeFormEntity;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
 
 public class PracticeFormTest extends BaseTest {
 
