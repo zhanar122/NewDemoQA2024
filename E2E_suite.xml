@@ -2,14 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="E2E Suite">
     <test verbose="2" preserve-order="true" name="C:/Users/Admin/IdeaProjects/DemoQAWinter2024">
-        <classes><class name="com.demoqa.elements.ClickButton"><methods><include name="textBoxTest"/>
-            <include name="clickTest"/></methods></class><class name="com.demoqa.elements.ListOfCafe">
-            <methods><include name="findFoodList"/></methods></class><class name="com.demoqa.elements.OrderFood">
-            <methods><include name="textBoxTest"/></methods></class><class name="com.demoqa.elements.TextBox">
-            <methods><include name="textBoxTest"/></methods></class><class name="com.demoqa.locators.BasicLocators">
-            <methods><include name="findByIdTest"/></methods></class><class name="com.demoqa.locators.ClickButton2">
-            <methods><include name="textBox"/></methods></class><class name="com.demoqa.locators.FoodList"><methods>
-            <include name="findFoodList"/></methods></class>
+        <classes>
+            <class name="OrangePageTest"/>
+            <class name="SelectDemoTest"/>
+            <class name="PracticeFormTest"/>
+            <class name="TextBoxTest"/>
+            <class name="ButtonsTest"/>
         </classes>
     </test>
 </suite>

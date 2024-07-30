@@ -40,5 +40,17 @@
         </list>
       </option>
     </inspection_tool>
+    <inspection_tool class="groupsTestNG" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="groups">
+        <value>
+          <list size="4">
+            <item index="0" class="java.lang.String" itemvalue="1012" />
+            <item index="1" class="java.lang.String" itemvalue="Smoke" />
+            <item index="2" class="java.lang.String" itemvalue="UI" />
+            <item index="3" class="java.lang.String" itemvalue="NBW-18" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
   </profile>
 </component>
